@@ -7,22 +7,28 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 	      <div class="container">
 		      <div class="navbar-header">
 		                 <%= link_to "Тестовый сайт", root_path, id: "logo" %>
 		      </div>
-		      <div class="registration">
-				<% if user_signed_in? %>
-					Вы вошли как: <div id="user_name"><%= current_user.username.upcase %></div>
-					<%= link_to "[Выход]", destroy_user_session_path %>
-				<% else %>
-					<%= link_to "Зарегистрироваться",  new_user_registration_path %> или <%= link_to "Войти", new_user_session_path %>
-				<% end %>
-				
+		      <div class="collapse navbar-collapse" id="navbar-collapse">
+			      <ul class="nav navbar-nav navbar-right">
+					<% if user_signed_in? %>
+						
+						<p class="navbar-text navbar-right">Вы вошли как: 
+							
+							<strong><%= link_to current_user.username.upcase, "#" , class: "navbar-link" %></strong>&nbsp
+							<%= link_to "[Выход]", destroy_user_session_path, class: "navbar-link navbar-right" %>
+						</p> 
+					<% else %>
+						<li><%= link_to "Регистрация",  new_user_registration_path %> </li>
+						<li><%= link_to "Вход", new_user_session_path %></li>
+					<% end %>
+				</ul>
 			</div>
 		</div>
-	</div>
+	</nav>
 	<div class="container">
 		<%= yield %>
 	</div>
