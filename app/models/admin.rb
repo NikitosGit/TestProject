@@ -3,4 +3,5 @@ class Admin < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, password_length: 10..128
+   mount_uploader :image_passport, ImageUploader
 end
