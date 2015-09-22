@@ -1,3 +1,3 @@
 #Ruby on Rails
 
-Тестовое задание для SkillGrid
+Тестовое задание для SkillGrid (part1)
