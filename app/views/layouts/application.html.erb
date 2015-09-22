@@ -17,7 +17,6 @@
 					<% if user_signed_in? %>
 						
 						<p class="navbar-text navbar-right">Вы вошли как: 
-							
 							<strong><%= link_to current_user.username.upcase, "#" , class: "navbar-link" %></strong>&nbsp
 							<%= link_to "[Выход]", destroy_user_session_path, class: "navbar-link navbar-right" %>
 						</p> 
