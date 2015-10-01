@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151001121146) do
+ActiveRecord::Schema.define(version: 20151001124740) do
 
   create_table "admins", force: true do |t|
     t.string   "first_name"
@@ -52,9 +52,12 @@ ActiveRecord::Schema.define(version: 20151001121146) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "username"
+    t.integer  "meta_id"
+    t.string   "meta_type"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["meta_id", "meta_type"], name: "index_users_on_meta_id_and_meta_type"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end
