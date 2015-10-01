@@ -69,6 +69,14 @@ class SellersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def seller_params
-      params[:seller]
+      params.require(:seller).permit(:shop_name, user_attributes: [ :id, :email, :password, :password_confirmation ])
+    end
+
+    def authenticate_seller
+      redirect_to(new_seller_session_path) unless current_user.meta_type == "Seller"
+    end
+
+    def new_registration
+      redirect_to(sellers_path) if user_signed_in?
     end
 end

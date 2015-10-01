@@ -15,20 +15,21 @@
 		      <div class="collapse navbar-collapse" id="navbar-collapse">
 			      <ul class="nav navbar-nav navbar-right">
 					<% if user_signed_in? %>
-							<p class="navbar-text navbar-right">Вы вошли как: 
+						<p class="navbar-text navbar-right">Вы вошли как: 
+							<% if current_user.meta_type == "Admin" %>
+								администратор
+							<% elsif  current_user.meta_type == "Seller" %>
+								продавец
+							<% end %>
 							<strong><%= link_to current_user.username.upcase, "#" , class: "navbar-link" %></strong>&nbsp
+							
+
 							<%= link_to "[Выход]", destroy_user_session_path, class: "navbar-link navbar-right" %>
 						</p> 
-					<% elsif  admin_signed_in? %>
-							<p class="navbar-text navbar-right">Вы вошли как админ: 
-							<strong><%= link_to current_admin.firstname.upcase, "#" , class: "navbar-link" %></strong>&nbsp
-							<%= link_to "[Выход]", destroy_admin_session_path, class: "navbar-link navbar-right" %>
-						</p>  %>
 					<% else %>
-						<li><%= link_to "Регистрация",  new_user_registration_path %> </li>
+						<li><%= link_to "Регистрация (продавец)",  new_seller_path %> </li>
+						<li><%= link_to "Регистрация (админ)",  new_admin_path %> </li>
 						<li><%= link_to "Вход", new_user_session_path %></li>
-						<li><%= link_to "Регистрация (админ)",  new_admin_registration_path %> </li>
-						<li><%= link_to "Вход (админ)", new_admin_session_path %></li>
 					<% end %>
 				</ul>
 			</div>

@@ -67,8 +67,15 @@ class AdminsController < ApplicationController
       @admin = Admin.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def admin_params
-      params[:admin]
+      params.require(:admin).permit(:first_name, :last_name,  :born_on, user_attributes: [ :id, :email, :password, :password_confirmation ])
+    end
+
+    def authenticate_admin
+      redirect_to(new_admin_session_path) unless current_user.meta_type == "Admin"
+    end
+
+    def new_registration
+      redirect_to(admins_path) if user_signed_in?
     end
 end
