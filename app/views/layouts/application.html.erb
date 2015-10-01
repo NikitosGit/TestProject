@@ -27,13 +27,27 @@
 					<% else %>
 						<li><%= link_to "Регистрация",  new_user_registration_path %> </li>
 						<li><%= link_to "Вход", new_user_session_path %></li>
-						<li><%= link_to "Регистрация (админ)",  new_user_registration_path %> </li>
-						<li><%= link_to "Вход (админ)", new_user_session_path %></li>
+						<li><%= link_to "Регистрация (админ)",  new_admin_registration_path %> </li>
+						<li><%= link_to "Вход (админ)", new_admin_session_path %></li>
 					<% end %>
 				</ul>
 			</div>
 		</div>
 	</nav>
+	<% flash.each do |name, msg| %>
+
+ 
+  <% if msg.class == Array %>
+    <% msg.each do |message| %>
+      <%= content_tag :div, message, :id => "flash_#{name}" %>
+    <% end %>
+  <% else %>
+
+    
+    <%= content_tag :div, msg, :id => "flash_#{name}" %>
+
+  <% end %> 
+<% end %>
 	<div class="container">
 		<%= yield %>
 	</div>

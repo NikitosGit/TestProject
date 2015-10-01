@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
   
-  devise_for :admins, controllers: {registrations: "admins/registrations"}
-  devise_for :users, controllers: {registrations: "users/registrations"}
+  #devise_for :admins, controllers: {registrations: "admins/registrations"}
+  #devise_for :users, controllers: {registrations: "users/registrations"}
+
+  resources :admins
+  resources :sellers
+
+  devise_for :users
+  #devise_for :user, :path => '', :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" }
+  #devise_for :admins, :path => '', :path_names => { :sign_in => "login", :sign_out => "logout"}
   resources :products
 
   # The priority is based upon order of creation: first created -> highest priority.
