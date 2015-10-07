@@ -20,6 +20,8 @@
 								администратор
 							<% elsif  current_user.meta_type == "Seller" %>
 								продавец
+							<% elsif  current_user.meta_type == "Guest" %>
+								гость
 							<% end %>
 							<strong><%= link_to current_user.email.upcase, "#" , class: "navbar-link" %></strong>&nbsp
 							
@@ -29,6 +31,7 @@
 					<% else %>
 						<li><%= link_to "Регистрация (продавец)",  new_seller_path %> </li>
 						<li><%= link_to "Регистрация (админ)",  new_admin_path %> </li>
+						<li><%= link_to "Регистрация (гость)",  new_guest_path %> </li>
 						<li><%= link_to "Вход", new_user_session_path %></li>
 					<% end %>
 				</ul>
