@@ -15,6 +15,7 @@ class SellersController < ApplicationController
   # GET /sellers/new
   def new
     @seller = Seller.new
+    @seller.build_user
   end
 
   # GET /sellers/1/edit

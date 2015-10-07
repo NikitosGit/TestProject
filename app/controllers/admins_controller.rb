@@ -15,6 +15,7 @@ class AdminsController < ApplicationController
   # GET /admins/new
   def new
     @admin = Admin.new
+    @admin.build_user
   end
 
   # GET /admins/1/edit

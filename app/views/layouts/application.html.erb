@@ -21,7 +21,7 @@
 							<% elsif  current_user.meta_type == "Seller" %>
 								продавец
 							<% end %>
-							<strong><%= link_to current_user.username.upcase, "#" , class: "navbar-link" %></strong>&nbsp
+							<strong><%= link_to current_user.email.upcase, "#" , class: "navbar-link" %></strong>&nbsp
 							
 
 							<%= link_to "[Выход]", destroy_user_session_path, class: "navbar-link navbar-right" %>
