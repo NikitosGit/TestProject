@@ -13,29 +13,37 @@
 
   <div class="container">
     <div class="field">
-      <%= f.label :first_name %><br>
+      <%= f.label 'Имя' %><br>
       <%= f.text_field :first_name %>
     </div>
     <div class="field">
-      <%= f.label :last_name %><br>
+      <%= f.label 'Фамилия' %><br>
       <%= f.text_field :last_name %>
     </div>
     <div class="field">
-      <%= f.label :born_on %><br>
+      <%= f.label 'Дата рождения' %><br>
       <%= f.text_field :born_on %>
+    </div>
+    <div class="field">
+      <%= f.label 'Аватар' %><br>
+      <%= f.file_field :avatar %>
+    </div>
+    <div class="field">
+      <%= f.label 'Скан паспорта' %><br>
+      <%= f.file_field :image_passport %>
     </div>
     <%= f.fields_for :user do |u| %>
       <div class="field">
         <%= u.label :email %><br>
-        <%= u.text_field :email %>
+        <%= u.email_field :email %>
       </div>
       <div class="field">
-        <%= u.label :password %><br>
-        <%= u.text_field :password %>
+        <%= u.label 'Пароль' %><br>
+        <%= u.password_field :password %>
       </div>
       <div class="field">
-        <%= u.label :password_confirmation %><br>
-        <%= u.text_field :password_confirmation %>
+        <%= u.label 'Подтверждение пароля' %><br>
+        <%= u.password_field :password_confirmation %>
       </div>
     <% end %> 
 

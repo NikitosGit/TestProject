@@ -1,4 +1,22 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <strong>Имя:</strong>
+  <%= @admin.first_name %>
+</p>
+
+<p>
+  <strong>Фамилия:</strong>
+  <%= @admin.last_name %>
+</p>
+
+<p>
+   <strong>Аватар:</strong>
+   <%= image_tag @admin.avatar_url.to_s %>
+</p>
+<p>
+  <strong>Фото паспорта:</strong>
+  <%= image_tag @admin.image_passport_url.to_s %>
+</p>
 <%= link_to 'Edit', edit_admin_path(@admin) %> |
 <%= link_to 'Back', admins_path %>

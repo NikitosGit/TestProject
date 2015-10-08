@@ -23,7 +23,8 @@
 							<% elsif  current_user.meta_type == "Guest" %>
 								гость
 							<% end %>
-							<strong><%= link_to current_user.email.upcase, "#" , class: "navbar-link" %></strong>&nbsp
+							<%= puts @admin  %>
+							<strong><%= link_to current_user.email.upcase, @admin , class: "navbar-link" %></strong>&nbsp
 							
 
 							<%= link_to "[Выход]", destroy_user_session_path, class: "navbar-link navbar-right" %>

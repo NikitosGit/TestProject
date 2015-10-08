@@ -12,21 +12,21 @@
   <% end %>
   <div class="container">
     <div class="field">
-      <%= f.label :shop_name %><br>
+      <%= f.label 'Название магазина' %><br>
       <%= f.text_field :shop_name %><br>
     </div>
     <%= f.fields_for :user do |u| %>
       <div class="field">
         <%= u.label :email %><br>
-        <%= u.text_field :email %><br>
+        <%= u.email_field :email %><br>
       </div>
       <div class="field">
-        <%= u.label :password %><br>
-        <%= u.text_field :password %>
+        <%= u.label 'Пароль' %><br>
+        <%= u.password_field :password %>
       </div>
       <div class="field">
-        <%= u.label :password_confirmation %><br>
-        <%= u.text_field :password_confirmation %>
+        <%= u.label 'Подтверждение пароля' %><br>
+        <%= u.password_field :password_confirmation %>
       </div>
     <% end %> 
 
